@@ -11,6 +11,17 @@
   "navigation": {
     "tabs": [
       {
+        "tab": "Blog",
+        "groups": [
+          {
+            "group": "News & Updates",
+            "pages": [
+              "blog/index"
+            ]
+          }
+        ]
+      },
+      {
         "tab": "Getting Started",
         "groups": [
           {
@@ -26,17 +37,6 @@
               "getting-started/data-sovereignty",
               "getting-started/retention",
               "getting-started/language-committee"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Blog",
-        "groups": [
-          {
-            "group": "News & Updates",
-            "pages": [
-              "blog/index"
             ]
           }
         ]
