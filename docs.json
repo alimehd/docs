@@ -12,18 +12,28 @@
     "tabs": [
       {
         "tab": "Blog",
-        "pages": [
-          "blog/index"
+        "groups": [
+          {
+            "group": "",
+            "pages": [
+              "blog/index"
+            ]
+          }
         ]
       },
       {
         "tab": "Policies & Guides",
-        "pages": [
-          "index",
-          "getting-started/guides-for-communities",
-          "getting-started/data-sovereignty",
-          "getting-started/retention",
-          "getting-started/language-committee"
+        "groups": [
+          {
+            "group": "",
+            "pages": [
+              "index",
+              "getting-started/guides-for-communities",
+              "getting-started/data-sovereignty",
+              "getting-started/retention",
+              "getting-started/language-committee"
+            ]
+          }
         ]
       }
     ]
