@@ -11,7 +11,7 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "Blog",
+        "tab": "News & Updates",
         "groups": [
           {
             "group": "News & Updates",
@@ -22,7 +22,7 @@
         ]
       },
       {
-        "tab": "Getting Started",
+        "tab": "Policies & Guides",
         "groups": [
           {
             "group": "Introduction",
