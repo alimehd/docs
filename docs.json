@@ -20,6 +20,7 @@
           {
             "group": "Policies",
             "pages": [
+              "getting-started/privacy",
               "getting-started/data-sovereignty",
               "getting-started/language-committee"
             ]
