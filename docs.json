@@ -11,35 +11,29 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "Blog",
-        "pages": [
-          "blog/index"
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Getting Started",
+            "pages": ["index"]
+          },
+          {
+            "group": "Policies",
+            "pages": [
+              "getting-started/data-sovereignty",
+              "getting-started/language-committee"
+            ]
+          }
         ]
       },
       {
-        "tab": "Policies & Guides",
-        "pages": [
-          "index",
-          "getting-started/data-sovereignty",
-          "getting-started/language-committee"
-        ]
+        "tab": "Blog",
+        "pages": ["blog/index"]
       }
     ]
   },
   "logo": {
-    "light": "/logo/light.png",
+    "light": "/logo/light.svg",
     "dark": "/logo/dark.svg"
-  },
-  "contextual": {
-    "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
   }
 }
