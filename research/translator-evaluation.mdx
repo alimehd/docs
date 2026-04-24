@@ -1,18 +1,18 @@
 ---
 title: "Inuktitut Translator Evaluation: Results & Interpretation"
 sidebarTitle: "Translator Evaluation Results"
-description: "Results from the Choice Piunirniatuq platform: a blind, community-judged evaluation of Inuktitut machine translation."
+description: "Results from our translation evaluation platform: a blind, community-judged evaluation of Inuktitut AI translation."
 ---
 
 ## Abstract
 
-Standard machine-translation metrics — BLEU, METEOR, chrF, TER, COMET — perform poorly on Inuktitut, a polysynthetic language whose morphological richness is not well captured by surface-similarity or reference-embedding measures. To assess translation quality for Inuktitut in a way that reflects how translations are actually read and understood, Heritage Lab developed **Choice Piunirniatuq**, a blind pairwise-comparison platform judged by community members and expert translators. This document reports the methodology and current results of that evaluation. On the leaderboard, the Heritage Lab translator holds the top position, with Bing Translate in second and Google Translate in third.
+Standard AI translation metrics — BLEU, METEOR, chrF, TER, COMET — perform poorly on Inuktitut, a polysynthetic language whose morphological richness is not well captured by surface-similarity or reference-embedding measures. To assess translation quality for Inuktitut in a way that reflects how translations are actually read and understood, Heritage Lab developed a blind pairwise-comparison platform judged by community members and expert translators. This document reports the methodology and current results of that evaluation. On the leaderboard, the Heritage Lab translator holds the top position, with Bing Translate in second and Google Translate in third.
 
 ## Background
 
-Existing automatic evaluation metrics for machine translation were developed for high-resource languages with relatively rigid morphology. Inuktitut is polysynthetic: a single word can encode the meaning of a full English sentence through stacked morphemes expressing tense, agent, object, mood, and evidentiality. Two valid translations of the same reference can share very little surface form, and two translations that appear near-identical can differ in grammatical features that change the meaning. Metrics that reduce to n-gram overlap or reference-embedding similarity do not reliably track quality under these conditions.
+Existing automatic evaluation metrics for AI translation were developed for high-resource languages with relatively rigid morphology. Inuktitut is polysynthetic: a single word can encode the meaning of a full English sentence through stacked morphemes expressing tense, agent, object, mood, and evidentiality. Two valid translations of the same reference can share very little surface form, and two translations that appear near-identical can differ in grammatical features that change the meaning. Metrics that reduce to n-gram overlap or reference-embedding similarity do not reliably track quality under these conditions.
 
-Human pairwise judgment, aggregated across many evaluators and many sentence pairs, remains the most reliable signal available for translation quality in low-resource, morphologically rich languages. Choice Piunirniatuq was designed to collect this signal at scale for Inuktitut.
+Human pairwise judgment, aggregated across many evaluators and many sentence pairs, remains the most reliable signal available for translation quality in low-resource, morphologically rich languages. Our translation evaluation platform was designed to collect this signal at scale for Inuktitut.
 
 ## Methodology
 
@@ -20,9 +20,9 @@ Human pairwise judgment, aggregated across many evaluators and many sentence pai
 
 Each evaluation presents the participant with a reference sentence and two candidate translations, labeled A and B. System identities are not shown. The participant selects one of four options: *A is Better*, *B is Better*, *Both are good*, or *Both Are Bad*.
 
-![Pairwise comparison interface on the Choice Piunirniatuq platform](/images/tt-comparison.png)
+![Pairwise comparison interface on the translation evaluation platform](/images/tt-comparison.png)
 
-Anonymization of system identity is intended to remove brand effects from the judgment. Participants authenticate with a name and PIN, which supports auditability and filtering of low-quality responses.
+Anonymization of system identity is intended to remove brand effects from the judgment. Participants authenticate with a name and PIN, which supports auditability.
 
 ### Elo Rating
 
@@ -43,8 +43,6 @@ The platform targets a minimum of fifty matches per system before any result is 
 ## Results
 
 ### Leaderboard
-
-![Service Rankings from the Choice Piunirniatuq platform](/images/tt-service-ranking.png)
 
 | Rank | System                     | Elo rating | Matches | Wins | Losses |
 | ---: | -------------------------- | ---------: | ------: | ---: | -----: |
@@ -68,17 +66,6 @@ Elo differences do not correspond linearly to quality differences. Under the sta
 
 An Elo score is a relative quantity. It expresses how often a system is preferred in comparison to the other systems on the platform, on the sentences currently included in the evaluation. It does not assign an absolute quality value, and cross-leaderboard comparisons (for example, to Elo scores from chess or from other NLP arenas) are not meaningful.
 
-### What Elo Does Not Measure
-
-The leaderboard captures aggregated pairwise preference. It does not capture several factors that are relevant to assessing a translation system for Inuktitut:
-
-- **Dialect coverage.** Inuktitut comprises multiple dialects across Nunavut, Nunavik, Nunatsiavut, and the Inuvialuit region. Aggregate Elo does not differentiate performance by dialect.
-- **Cultural and contextual fidelity.** Elo aggregates preference but does not surface qualitative differences such as register, idiomatic appropriateness, or the handling of culturally specific concepts.
-- **Data governance.** Inuktitut text submitted to commercial translation services is processed under the terms of those services. Heritage Lab's translator operates under community governance and Indigenous data-sovereignty principles. This is not reflected in Elo.
-- **Operational characteristics.** Offline operation, low-bandwidth performance, and long-term community accountability are not inputs to the Elo calculation.
-
-Breakdowns along several of these axes are planned as the evaluation scales.
-
 ## Limitations
 
 The results reported here reflect a single snapshot of an ongoing evaluation. Elo rankings are inherently dependent on match distribution; under sparse or uneven sampling they can fluctuate more than the underlying quality of the systems would suggest. The reported leaderboard should be treated as the current best estimate from the evaluation platform, not as a final ranking. Results will continue to evolve as additional evaluations are collected and as the platform is extended to cover additional dialects and sentence types.
@@ -89,7 +76,7 @@ Ongoing and planned work on the evaluation platform includes increasing the numb
 
 ## Participation
 
-Inuktitut speakers, language keepers, and expert translators are invited to contribute evaluations through the Choice Piunirniatuq platform. Broader participation improves the statistical reliability of the leaderboard and supports community ownership of the ranking.
+Inuktitut speakers, language keepers, and expert translators are invited to contribute evaluations through our translation evaluation platform. Broader participation improves the statistical reliability of the leaderboard and supports community ownership of the ranking.
 
 ## Contributors
 
@@ -98,4 +85,4 @@ Inuktitut speakers, language keepers, and expert translators are invited to cont
 
 ---
 
-*Leaderboard figures reflect the evaluation snapshot from January 24, 2026. The platform is continuously updated; consult the live leaderboard for current figures.*
+*Leaderboard figures reflect the evaluation snapshot from April 15, 2026. The platform is continuously updated; consult the live leaderboard for current figures.*
