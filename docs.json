@@ -24,6 +24,12 @@
               "getting-started/data-sovereignty",
               "getting-started/language-committee"
             ]
+          },
+          {
+            "group": "Research",
+            "pages": [
+              "research/translator-evaluation"
+            ]
           }
         ]
       },

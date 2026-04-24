@@ -1,0 +1,101 @@
+---
+title: "Inuktitut Translator Evaluation: Results & Interpretation"
+sidebarTitle: "Translator Evaluation Results"
+description: "Results from the Choice Piunirniatuq platform: a blind, community-judged evaluation of Inuktitut machine translation."
+---
+
+## Abstract
+
+Standard machine-translation metrics — BLEU, METEOR, chrF, TER, COMET — perform poorly on Inuktitut, a polysynthetic language whose morphological richness is not well captured by surface-similarity or reference-embedding measures. To assess translation quality for Inuktitut in a way that reflects how translations are actually read and understood, Heritage Lab developed **Choice Piunirniatuq**, a blind pairwise-comparison platform judged by community members and expert translators. This document reports the methodology and current results of that evaluation. On the leaderboard, the Heritage Lab translator holds the top position, with Bing Translate in second and Google Translate in third.
+
+## Background
+
+Existing automatic evaluation metrics for machine translation were developed for high-resource languages with relatively rigid morphology. Inuktitut is polysynthetic: a single word can encode the meaning of a full English sentence through stacked morphemes expressing tense, agent, object, mood, and evidentiality. Two valid translations of the same reference can share very little surface form, and two translations that appear near-identical can differ in grammatical features that change the meaning. Metrics that reduce to n-gram overlap or reference-embedding similarity do not reliably track quality under these conditions.
+
+Human pairwise judgment, aggregated across many evaluators and many sentence pairs, remains the most reliable signal available for translation quality in low-resource, morphologically rich languages. Choice Piunirniatuq was designed to collect this signal at scale for Inuktitut.
+
+## Methodology
+
+### Pairwise Comparison
+
+Each evaluation presents the participant with a reference sentence and two candidate translations, labeled A and B. System identities are not shown. The participant selects one of four options: *A is Better*, *B is Better*, *Both are good*, or *Both Are Bad*.
+
+![Pairwise comparison interface on the Choice Piunirniatuq platform](/images/tt-comparison.png)
+
+Anonymization of system identity is intended to remove brand effects from the judgment. Participants authenticate with a name and PIN, which supports auditability and filtering of low-quality responses.
+
+### Elo Rating
+
+The platform aggregates pairwise judgments using the Elo rating system. Each system starts with a rating of 1000. The expected score for system $A$ in a match against system $B$ is
+
+$$E_A = \frac{1}{1 + 10^{(R_B - R_A)/400}},$$
+
+and the post-match update is
+
+$$R_A' = R_A + K\,(S_A - E_A),$$
+
+where $S_A \in \{0, 0.5, 1\}$ is the actual result and $K = 32$ is the scaling constant used throughout this evaluation. Both tie options (*Both are good* and *Both Are Bad*) are treated identically as draws; the distinction is retained only to capture evaluator feedback about absolute quality.
+
+### Reliability Target
+
+The platform targets a minimum of fifty matches per system before any result is treated as stable. All three systems reported here are within this range.
+
+## Results
+
+### Leaderboard
+
+![Service Rankings from the Choice Piunirniatuq platform](/images/tt-service-ranking.png)
+
+| Rank | System                     | Elo rating | Matches | Wins | Losses |
+| ---: | -------------------------- | ---------: | ------: | ---: | -----: |
+|    1 | Heritage Lab (JAN-20-M)    |       1060 |      37 |   26 |     11 |
+|    2 | Bing Translate             |       1005 |      38 |   15 |     23 |
+|    3 | Google Translate           |        951 |      37 |   15 |     22 |
+
+The Heritage Lab system leads the leaderboard by 55 Elo points over Bing Translate and by 109 Elo points over Google Translate.
+
+### Observed Win Rates
+
+Across all matches on the platform, the three systems recorded the following aggregate win rates: Heritage Lab 70.3%, Bing 39.5%, Google 40.5%. The observed rates are consistent with the Elo separation between systems.
+
+## Interpretation of Elo Differences
+
+### The Elo Scale is Logarithmic
+
+Elo differences do not correspond linearly to quality differences. Under the standard Elo formulation with a 400-point scale parameter, each successive 100-point gap increases the odds ratio by a factor of 1.78, roughly doubling the expected odds that the higher-rated system is preferred in a head-to-head match. Small-looking differences in raw rating therefore correspond to substantial differences in observed preference frequency over repeated trials.
+
+### Relative, Not Absolute
+
+An Elo score is a relative quantity. It expresses how often a system is preferred in comparison to the other systems on the platform, on the sentences currently included in the evaluation. It does not assign an absolute quality value, and cross-leaderboard comparisons (for example, to Elo scores from chess or from other NLP arenas) are not meaningful.
+
+### What Elo Does Not Measure
+
+The leaderboard captures aggregated pairwise preference. It does not capture several factors that are relevant to assessing a translation system for Inuktitut:
+
+- **Dialect coverage.** Inuktitut comprises multiple dialects across Nunavut, Nunavik, Nunatsiavut, and the Inuvialuit region. Aggregate Elo does not differentiate performance by dialect.
+- **Cultural and contextual fidelity.** Elo aggregates preference but does not surface qualitative differences such as register, idiomatic appropriateness, or the handling of culturally specific concepts.
+- **Data governance.** Inuktitut text submitted to commercial translation services is processed under the terms of those services. Heritage Lab's translator operates under community governance and Indigenous data-sovereignty principles. This is not reflected in Elo.
+- **Operational characteristics.** Offline operation, low-bandwidth performance, and long-term community accountability are not inputs to the Elo calculation.
+
+Breakdowns along several of these axes are planned as the evaluation scales.
+
+## Limitations
+
+The results reported here reflect a single snapshot of an ongoing evaluation. Elo rankings are inherently dependent on match distribution; under sparse or uneven sampling they can fluctuate more than the underlying quality of the systems would suggest. The reported leaderboard should be treated as the current best estimate from the evaluation platform, not as a final ranking. Results will continue to evolve as additional evaluations are collected and as the platform is extended to cover additional dialects and sentence types.
+
+## Next Steps
+
+Ongoing and planned work on the evaluation platform includes increasing the number of evaluators per system, publishing dialect-specific leaderboards as volume permits, expanding the reference sentence set to cover additional domains and registers, and feeding evaluator feedback into the continued development of the Heritage Lab translator.
+
+## Participation
+
+Inuktitut speakers, language keepers, and expert translators are invited to contribute evaluations through the Choice Piunirniatuq platform. Broader participation improves the statistical reliability of the leaderboard and supports community ownership of the ranking.
+
+## Contributors
+
+- **Shaun Annanack, Siasie Ilisituk** — translation testing
+- **Anissa Jean, Ali Mehdi** — statistics & platform
+
+---
+
+*Leaderboard figures reflect the evaluation snapshot from January 24, 2026. The platform is continuously updated; consult the live leaderboard for current figures.*
